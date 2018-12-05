@@ -1,4 +1,7 @@
 # booksearch
+
+![Daisy Says Hello](booksearch/static/images/daisy.png)
+
 Search for Books Using the Google Book API
 
 
