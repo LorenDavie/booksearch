@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block title %}
-{{ query }} | Book Search
+{{ query }} | Arf! Arf!
 {% endblock title %}
 
 {% block content %}
-<h2 class="mt-3 text-white"><a href="/"><img src="{% static 'images/daisy.png' %}"></a> Results for "{{ query }}"</h2>
+<h2 class="mt-3 text-white"><a href="/"><img src="{% static 'images/daisy.png' %}"></a> Daisy has {{ result_count}} result{{ result_count|pluralize }} for "{{ query }}"</h2>
 <div class="card bg-light">
     <div class="card-body">
         <form action="/search/" method="GET">
@@ -15,7 +15,7 @@
               {{ form.query }} 
           </p>
           <p>
-              <input type="submit" class="btn btn-primary" value="Search">
+              <input type="submit" class="btn btn-primary" value="Fetch Me More Books, Daisy!">
            </p>
            {% csrf_token %}
         </form>

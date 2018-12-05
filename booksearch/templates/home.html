@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block title %}
-Welcome to BookSearch!
+Arf?
 {% endblock title %}
 
 {% block content %}
 <div class="text-white">
-    <h1 class="mt-3"><img src="{% static 'images/daisy.png' %}"> Welcome to Book Search!</h1>
-    <p>Please type some text to search for a book.</p>
+    <h1 class="mt-3"><img src="{% static 'images/daisy.png' %}"> Welcome to Daisy's Book Search!</h1>
+    <p>Please type some text to tell Daisy what books to retrieve.</p>
 </div>
 <div class="card bg-light">
     <div class="card-body">
@@ -18,7 +18,7 @@ Welcome to BookSearch!
                {{ form.query }} 
             </p>
             <p>
-               <input type="submit" class="btn btn-primary btn-lg" value="Search!"> 
+               <input type="submit" class="btn btn-primary btn-lg" value="Fetch Me A Book, Daisy!"> 
             </p>
             {% csrf_token %}
         </form>
