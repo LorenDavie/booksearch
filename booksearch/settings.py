@@ -27,7 +27,7 @@ DEBUG = True if os.environ.get("BOOKSEARCH_DEBUG", None) else False
 
 local_static = True if os.environ.get("BOOKSEARCH_LOCALSTATIC", None) else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "daisy-booksearch.herokuapp.com"]
 
 
 # Application definition
