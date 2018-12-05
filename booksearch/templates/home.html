@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Welcome to BookSearch!
+{% endblock title %}
+
+{% block content %}
+<div class="text-white">
+    <h1 class="mt-3"><img src="{% static 'images/daisy.png' %}"> Welcome to Book Search!</h1>
+    <p>Please type some text to search for a book.</p>
+</div>
+<div class="card bg-light">
+    <div class="card-body">
+        <form action="/search/" method="GET">
+            <p class= "mt-5">
+               {{ form.query }} 
+            </p>
+            <p>
+               <input type="submit" class="btn btn-primary btn-lg" value="Search!"> 
+            </p>
+            {% csrf_token %}
+        </form>
+    </div>
+</div>
+{% endblock content %}
