@@ -28,6 +28,8 @@ This application should allow you to:
 ```
 #!/usr/bin/env bash
 
+export BOOKSEARCH_DEBUG=true
+export BOOKSEARCH_LOCALSTATIC=true
 export GOOGLE_API_KEY=<your-api-key>
 
 ./manage.py $1 $2 $3 $4 $5 $6 $7

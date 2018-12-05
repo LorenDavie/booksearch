@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "9ug_j8bykwqe=3xw*9e1!7#%ga+0^q+w)58+3(=l=d^czk85um"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.environ.get("BOOKSEARCH_DEBUG", None) else False
+
+local_static = True if os.environ.get("BOOKSEARCH_LOCALSTATIC", None) else False
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "storages",
     "booksearch",
 ]
 
@@ -116,3 +119,15 @@ STATIC_URL = "/static/"
 
 # API Key for Google Book API
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
+
+# Storage
+if not local_static:
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    AWS_STORAGE_BUCKET_NAME = os.environ.get(
+        "BOOKSEARCH_AWS_STORAGE_BUCKET", "daisy_booksearch"
+    )
+    AWS_AUTO_CREATE_BUCKET = True
+    STATIC_ROOT = "static"
+    STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+else:
+    STATICFILES_DIRS = [BASE_DIR]
