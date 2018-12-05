@@ -124,7 +124,7 @@ GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 if not local_static:
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
     AWS_STORAGE_BUCKET_NAME = os.environ.get(
-        "BOOKSEARCH_AWS_STORAGE_BUCKET", "daisy_booksearch"
+        "BOOKSEARCH_AWS_STORAGE_BUCKET", "daisy-booksearch"
     )
     AWS_AUTO_CREATE_BUCKET = True
     STATIC_ROOT = "static"
