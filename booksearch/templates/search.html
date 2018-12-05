@@ -26,7 +26,7 @@
     <h3 class="text-center">{{ result_count }} result{{ result_count|pluralize}}</h3>
     <hr/>
     {% for item in results %}
-    <div class="float-right">
+    <div class="float-right d-none d-sm-block">
         <a href="{{ item.volumeInfo.infoLink }}" target="_blank" class="btn btn-outline-primary">More Info</a>
     </div>
     <div class="media">
@@ -35,6 +35,9 @@
             <h3>{{ item.volumeInfo.title }}</h3>
             <p><em>by {{ item.volumeInfo.authors|join:", " }}</em></p>
             <p>Published by <strong>{{ item.volumeInfo.publisher }}</strong></p>
+            <p class="d-block d-sm-none">
+                <a href="{{ item.volumeInfo.infoLink }}" target="_blank" class="btn btn-outline-primary">More Info</a>
+            </p>
             <p>{{ item.volumeInfo.description|truncatewords_html:"50" }}</p>
         </div>
     </div>
