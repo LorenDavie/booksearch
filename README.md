@@ -4,6 +4,7 @@
 
 Search for Books Using the Google Book API
 
+(Starring my basset hound, Daisy.)
 
 This application should allow you to:
 
@@ -37,3 +38,25 @@ export GOOGLE_API_KEY=<your-api-key>
 ```
 
 Use this file for Django commands.  So, for example, to run the server use `./local.sh runserver`.
+
+## Design Approach
+
+This is a pretty simple problem, so I tried to keep the solution simple as well. No class-based views, no custom taglibs, no multiple layers of abstraction.  Just some simple views, a form, and one extra business module to encapsulate client access to the Google Books API.
+
+Also no tests, because there just isn't much to test.  I suppose I could write a test for connectivity to the Google API, but since every single use of the application will make a connection failure totally obvious, I chose not to do so.
+
+The UI uses bootstrap to make it look acceptable. One small trick is that the **More Info** button is rendered in a different place on extra-small viewports (phones), because otherwise the float-right position of the normal button smashes into the text. This is accomplished with Bootstrap classes.
+
+### Research and Tools
+
+* [Example of Google Books API Usage in Python](https://developers.google.com/api-client-library/python/samples/simple_api_cmd_line_books.py)
+* When hosting on Heroku I like to use [Django Storages](https://django-storages.readthedocs.io/en/latest/) and just push the static files to S3.
+* Python code is formatted with [Black](https://black.readthedocs.io/en/stable/) because I'm tired of talking about code formatting. Everyone should just use code formatters now.
+
+### Future Enhancements
+
+Looks like the Google API returns 10 results by default.  Some sort of pagination to get to deeper results might be nice.  Also if I could find a way to automatically set up an Amazon affiliate link that would also be good.
+
+### Easter Egg
+
+Type a space into the search bar and hit enter.
