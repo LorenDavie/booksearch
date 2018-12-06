@@ -24,7 +24,9 @@ This application should allow you to:
 
 4. Source the environment: `source env/bin/activate`
 
-5. Make a file called `local.sh` and make it executable. The contents of the file should look like this:
+5. Install requirements: `pip install -r requirements.txt`
+
+6. Make a file called `local.sh` and make it executable. The contents of the file should look like this:
 
 ```
 #!/usr/bin/env bash
